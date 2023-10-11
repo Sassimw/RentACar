@@ -1,0 +1,11 @@
+<apex:page standardController="Account"  extensions="saveVfPdfCtrl" showHeader="false" title="Quotation PDF" showQuickActionVfHeader="false" >
+    <apex:form >    
+        <center>   
+            <apex:commandButton action="{!pdfAction}"  value="Save Attachment"/> 
+            <apex:commandButton action="{!Cancel}"  value="Cancel" /> </center> <br/>
+        <center>
+            <apex:iframe height="700px"  width="1100px" src="/apex/savePdfVp?id={!MstrID}"/>
+        </center>
+    </apex:form><br/><br/><br/>
+    <footer class="slds-modal__footer"></footer>
+</apex:page>

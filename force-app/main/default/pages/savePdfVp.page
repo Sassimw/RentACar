@@ -1,0 +1,50 @@
+<apex:page standardController="Account" extensions="saveVfPdfCtrl" renderAs="pdf" applyBodyTag="false">
+<head>
+        <style>
+            @page {
+            size: A4 portrait;
+            margin: 3mm;
+            }
+ 
+            body {
+            font-family: sans-serif;
+            font-size: 11pt;
+            }
+            th {
+            min-height: 15px;
+            max-height: auto;
+            background:#ddd;
+            }
+            td {
+            min-height: 15px;
+            max-height: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <table border="1" cellspacing="0" cellpadding="10" style="width: 100%; border-collapse: collapse; border-color: #000; text-align:left;">
+            <thead>
+                <tr> 
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Industry</th>
+                    <th>Rating</th>
+                    <th>Description</th>
+                    <th>Website</th>
+                </tr>     
+            </thead>
+ 
+            <apex:repeat value="{!accObj}" var="accItem">                
+                <tr width="100%" style="text-align: center;">
+                    <td style="text-align:left;"><apex:outputText value="{!accItem.Name}"/></td>
+                    <td style="text-align:left;"><apex:outputText value="{!accItem.Phone}"/></td>
+                    <td style="text-align:left;"><apex:outputText value="{!accItem.Industry}"/></td>
+                    <td style="text-align:left;"><apex:outputText value="{!accItem.Rating}"/></td>
+                    <td style="text-align:left;"><apex:outputText value="{!accItem.Description}"/></td>
+                    <td style="text-align:left;"><apex:outputText value="{!accItem.Website}"/></td>
+                </tr>
+            </apex:repeat>  
+ 
+        </table>   
+    </body> 
+</apex:page>

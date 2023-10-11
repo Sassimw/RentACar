@@ -1,0 +1,64 @@
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+
+h1 {
+    color: #006699;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.footer {
+    margin-top: 50px;
+    text-align: center;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #000; /* Add a border for separation */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 80px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.logo2 {
+    width: 80px;
+    height: auto;
+    margin-left: auto;
+}
+.title {
+    flex: 1; /* Takes up remaining space in the middle */
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}

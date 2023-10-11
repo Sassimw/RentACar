@@ -1,0 +1,11 @@
+<apex:page standardController="ServiceContract" extensions="SendPDFController">
+    <apex:form >
+        <apex:pageMessages />
+        <center>
+            Recipient Email :  <apex:inputText value="{!recipientEmail}" label="Recipient Email" /> <br/>
+            <apex:commandButton value="Send PDF as Attachment" action="{!sendPDFByEmail}" />
+            <apex:commandButton action="{!Cancel}"  value="Return" />
+        </center>
+        
+    </apex:form>
+</apex:page>

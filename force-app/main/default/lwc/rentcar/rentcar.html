@@ -1,0 +1,30 @@
+<template>
+  <lightning-card title="Rent this car">
+    <!-- Service Contract Fields -->
+    <lightning-input label="Contract Name" value={serconRecord.contractName} onchange={handleContractNameChange}></lightning-input>
+    <lightning-input label="Start Date" type="date" value={serconRecord.StartDate} onchange={handleStartDateChange}></lightning-input>
+    <lightning-input label="Term" type="number" value={termField} onchange={handleTermChange}></lightning-input>
+    <lightning-combobox
+    required="true"
+    label="PriceBook"
+    value={selectedPriceBookId}
+    options={PricebookOptions}
+    onchange={handlePriceBookChange}
+    placeholder="Select a Price Book">
+</lightning-combobox>
+  <lightning-input label="Vehicule Unit Price" type="number" value={unitPrice} disabled="true" ></lightning-input>
+    <lightning-combobox
+          label="Account"
+          value={selectedAccountId}
+          options={accountOptions}
+          onchange={handleAccountChange}
+          placeholder="Select an Account">
+      </lightning-combobox>
+      
+
+
+    
+</lightning-card>
+<lightning-button label="Rent This Car" onclick={createServiceContract}></lightning-button>
+<div> <p style="color:red;"> {errorMessage}</p></div>
+</template>

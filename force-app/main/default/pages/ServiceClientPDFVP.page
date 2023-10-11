@@ -1,0 +1,84 @@
+<apex:page standardController="ServiceContract" extensions="ServiceContractCtr" renderAs="pdf">
+    
+    <apex:stylesheet value="{!$Resource.PDFStyles}" /> 
+ 
+   
+	<apex:panelGrid columns="3" style="width: 100%; padding: 10px; ">
+        <apex:outputPanel styleClass="logo-container">
+            <img src="/resource/rent_car_logo" alt="Logo 1" class="logo" />
+        </apex:outputPanel>
+        <div class="title">
+            Rent a car : Service Contract
+        </div>
+        <apex:outputPanel styleClass="logo-container">
+            <img src="/resource/salesforce" alt="Logo 2" class="logo2" />
+        </apex:outputPanel>
+    </apex:panelGrid>
+    
+    
+      <div class='container-fluid'> 
+      <div style="width:700px; height:2px;background:black;"></div>
+      </div>  
+    <h1> Service Contract Details </h1>
+    
+    <h2> Contract name : <apex:outputText value=" {!ServiceContract.Name}"/>  </h2>
+    
+    <table>
+        <tr><th>Contract Number :</th>
+            <td><apex:outputText value="{!ServiceContract.ContractNumber }"/></td>
+        </tr>
+        <tr><th>Client Name : </th>
+            <td><apex:outputText value="{!accObj.Name}"/></td>
+        </tr>
+        <tr><th>Contract Start Date :</th>
+            <td><apex:outputText value="{0,date,long}">
+                <apex:param value="{!ServiceContract.StartDate}"/>
+                </apex:outputText></td>
+        </tr>
+        
+        <tr><th>Contract End Date : </th>
+            <td><apex:outputText value="{0,date,long}">
+                <apex:param value="{!ServiceContract.EndDate}"/>
+                </apex:outputText></td>
+        </tr>
+        <tr><th>Contract duration (months) : </th>
+            <td> <apex:outputText value="{!ServiceContract.Term }"/>
+                
+            </td>
+        </tr>
+        
+    </table>
+    
+    
+    
+    <apex:outputPanel rendered="{!conLineItemsWithProducts.size > 0}">
+        <h2> Vehicules List : </h2>
+        <br/>
+        <table>
+            <tr>
+                <th>Product Name</th>
+                <th>Product Type</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Total Price</th>
+            </tr>
+            <apex:repeat value="{!conLineItemsWithProducts}" var="item">
+                <tr>
+                    <td><apex:outputText value="{!item.relatedProduct.Name}" /></td>
+                    <td><apex:outputText value="{!item.relatedProduct.Type__c}" /></td>
+                    <td><apex:outputText value="{!item.lineItem.Quantity}" /></td>
+                    <td><apex:outputText value="{!item.lineItem.UnitPrice}" /></td>
+                    <td><apex:outputText value="{!item.lineItem.TotalPrice}" /></td>
+                </tr>
+            </apex:repeat>
+        </table>
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!conLineItemsWithProducts.size == 0}">
+        <h3>
+            No vehicules assigned to this contract.
+        </h3>
+    </apex:outputPanel>
+    
+    
+    
+</apex:page>
